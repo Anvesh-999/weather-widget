@@ -6,11 +6,11 @@ import { useState } from 'react';
 export default function SearchBox(){
     let [city, setCity] = useState("");
     
-    let API_kEY="590bcda16cdbc86411cf19646926c881";
-    let API_URL=`https://api.openweathermap.org/data/2.5/weather`;
+    
 
     let getWeather=async()=>{
-        let response=await fetch(`${API_URL}?q=${city}&appid=${API_kEY}&units=metric`);
+        let response=await fetch(`${import.meta.env.VITE_API_URL}?q=${city}&appid=${import.meta.env.VITE_API_KEY}&units=metric`);
+        
         let data=await response.json();
         console.log(data);
         let res={
@@ -40,7 +40,7 @@ export default function SearchBox(){
             <h3>Search for the weather</h3>
             <form onSubmit={handleSubmit}>
             <TextField id="city" label="City Name" variant="outlined" required value={city} onChange={handleChange}/>&nbsp;
-            <br /><br />
+            <br /><br />    
             <Button variant="contained" type='submit'>Search</Button>
             </form>
         </div>
