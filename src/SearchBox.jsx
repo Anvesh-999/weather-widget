@@ -3,17 +3,17 @@ import TextField from '@mui/material/TextField';
 import './SearchBox.css';
 import { useState } from 'react';
 
-export default function SearchBox(){
+export default function SearchBox({updateInfo}){
     let [city, setCity] = useState("");
-    
-    
+    let [error,setError]=useState(false);
 
     let getWeather=async()=>{
-        let response=await fetch(`${import.meta.env.VITE_API_URL}?q=${city}&appid=${import.meta.env.VITE_API_KEY}&units=metric`);
+       try{let response=await fetch(`${import.meta.env.VITE_API_URL}?q=${city}&appid=${import.meta.env.VITE_API_KEY}&units=metric`);
         
         let data=await response.json();
         console.log(data);
         let res={
+            city:city,
             temp:data.main.temp,
             temp_max:data.main.temp_max,
             temp_min:data.main.temp_min,
@@ -24,24 +24,32 @@ export default function SearchBox(){
             wind_speed:data.wind.speed,
         }
         console.log(res);
+        return res;
+       }catch(err){
+        throw err;
+       }
     }
 
     let handleChange=(evn)=>{
         setCity(evn.target.value);
     }
-    let handleSubmit=(evn)=>{
-        evn.preventDefault();
+    let handleSubmit= async (evn)=>{
+        try{evn.preventDefault();
         console.log(city);
         setCity("");
-        getWeather();
+        let newInfo=await getWeather();
+        updateInfo(newInfo);
+        }catch(err){
+            setError(true);
+        }
     }
     return (
-        <div className="searchBox">
-            <h3>Search for the weather</h3>
+        <div className="SearchBox">
             <form onSubmit={handleSubmit}>
             <TextField id="city" label="City Name" variant="outlined" required value={city} onChange={handleChange}/>&nbsp;
             <br /><br />    
             <Button variant="contained" type='submit'>Search</Button>
+            {error && <p style={{color:"red"}}>Error fetching data. Please try again.</p>}
             </form>
         </div>
     )
