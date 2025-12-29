@@ -1,16 +1,69 @@
-# React + Vite
+🌤️ Weather Widget
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, responsive weather widget built with React + Vite that displays real‑time weather information using a weather API (like OpenWeatherMap). Perfect for embedding in websites or learning how to connect React apps with third‑party APIs.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Shows current weather (e.g., temperature, conditions)
+✅ Works with any city search input
+✅ Simple, clean UI with responsive layout
+✅ Built with React + Vite
 
-## React Compiler
+📦 Tech Stack
+```bash
+| Technology                   | Purpose       |
+| ---------------------------- | ------------- |
+| React                        | UI library    |
+| Vite                         | Build tooling |
+| CSS                          | Styling       |
+| Weather API (OpenWeatherMap) | Weather data  |
+```
+🛠️ Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clone the repo
+```bash
+git clone https://github.com/Anvesh-999/weather-widget.git
+cd weather-widget
+```
+2. Install dependencies
+```bash
+npm install
+```
 
-## Expanding the ESLint configuration
+3. API Key setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Create a (free) API key from OpenWeatherMap (https://openweathermap.org/).
+Then create a .env file in the project root:
+```bash
+VITE_WEATHER_API_KEY=YOUR_API_KEY_HERE
+```
+
+4. Run locally
+```bash
+npm run dev
+```
+
+📌 How to Use
+
+Open the app in your browser (usually http://localhost:5173/).
+
+Enter a city name in the search bar.
+
+The widget will show the current weather for that city.
+
+---
+⭐ Support This Project
+
+If you found this project helpful or learned something new, please consider giving it a star ⭐ on GitHub.
+Your support motivates me to build more open-source projects!
+
+----
+👤 Author
+
+Anvesh Anumolu
+
+----
+
+📄 License
+
+This project is open‑source under the MIT License.
