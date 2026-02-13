@@ -4,7 +4,7 @@ A simple, responsive weather widget built with React + Vite that displays realâ€
 
 ðŸš€ Features
 
--  Shows current weather (e.g., temperature, conditions)
+-  Shows current weather (e.g., temperature)
 -  Works with any city search input
 -  Simple, clean UI with responsive layout
 -  Built with React + Vite
